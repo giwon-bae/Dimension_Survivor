@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     Collider2D coll;
     Animator anim;
     SpriteRenderer spriter;
+    WaitForFixedUpdate wait;
 
 
     #region Unity Methods
@@ -25,6 +26,7 @@ public class Enemy : MonoBehaviour
         coll = GetComponent<Collider2D>();
         spriter = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        wait = new WaitForFixedUpdate();
     }
 
     void FixedUpdate()
@@ -62,19 +64,41 @@ public class Enemy : MonoBehaviour
         }
 
         health -= collision.GetComponent<Bullet>().damage;
+        StartCoroutine(KnockBack());
 
-            
+        if (health > 0)
+        {
+            // Hit animation
+        }
+        else
+        {
+            isAlive = false;
+            coll.enabled = false;
+            rigid.simulated = false;
+
+
+        }
     }
 
     #endregion 
 
     public void Init(SpawnData data)
     {
-        
+        speed = data.speed;
+        maxHealth = data.health;
+        health = data.health;
     }
 
     void Dead()
     {
+        gameObject.SetActive(false);
+    }
 
+    IEnumerator KnockBack()
+    {
+        yield return wait;
+        Vector3 playerPos = GameManager.instance.player.transform.position;
+        Vector3 dirVec = transform.position - playerPos;
+        rigid.AddForce(dirVec.normalized * 3, ForceMode2D.Impulse);
     }
 }
