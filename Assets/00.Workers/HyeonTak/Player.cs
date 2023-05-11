@@ -8,14 +8,14 @@ public class Player : MonoBehaviour
     public float speed;
 
     Rigidbody2D rigid;
+    public Scanner scanner;
 
-    // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
+        scanner = GetComponent<Scanner>();
         rigid = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         inputVec.x = Input.GetAxisRaw("Horizontal"); //x√‡ ¿Ãµø
