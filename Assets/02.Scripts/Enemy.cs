@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour
             isAlive = false;
             coll.enabled = false;
             rigid.simulated = false;
-
+            GameManager.instance.GetMoney();
 
         }
     }
