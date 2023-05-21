@@ -458,6 +458,7 @@ GameObject:
   - component: {fileID: 1355247633}
   - component: {fileID: 1355247632}
   - component: {fileID: 1355247634}
+  - component: {fileID: 1355247635}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -585,6 +586,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   nearestTarget: {fileID: 0}
+--- !u!114 &1355247635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355247629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e37b88807580944b99004525a37309d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 277757748214325554, guid: bdca0d87128c03f4c9be6e1bbe9fd0eb, type: 3}
+  coolDown: 0.5
 --- !u!1 &1355538684
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,9 +715,9 @@ MonoBehaviour:
   - {fileID: 760577748}
   spawnData:
   - spriteType: 0
-    spawnTime: 3
+    spawnTime: 2
     health: 10
-    speed: 3
+    speed: 1
 --- !u!4 &2005198367
 Transform:
   m_ObjectHideFlags: 0
