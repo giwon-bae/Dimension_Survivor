@@ -6,14 +6,16 @@ public class Player : MonoBehaviour
 {
     public Vector2 inputVec;
     public float speed;
-
-    Rigidbody2D rigid;
+    
     public Scanner scanner;
+    Rigidbody2D rigid;
+    SpriteRenderer sprite;
 
     private void Awake()
     {
         scanner = GetComponent<Scanner>();
         rigid = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -26,5 +28,8 @@ public class Player : MonoBehaviour
         // 3. 위치 이동
         Vector2 nextVec = inputVec.normalized * speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
+
+        if (inputVec.x != 0)
+            sprite.flipX = inputVec.x > 0;
     }
 }

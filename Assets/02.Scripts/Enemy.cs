@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
     {
         if (!GameManager.instance.isPlaying) return;
 
-        spriter.flipX = target.position.x < rigid.position.x; 
+        spriter.flipX = target.position.x > rigid.position.x; 
     }
 
     void OnEnable()
