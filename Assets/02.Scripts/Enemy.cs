@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    #region Variables
     public float speed;
     public float health;
     public float maxHealth;
@@ -18,6 +19,7 @@ public class Enemy : MonoBehaviour
     SpriteRenderer spriter;
     WaitForFixedUpdate wait;
 
+    #endregion
 
     #region Unity Methods
     void Awake()

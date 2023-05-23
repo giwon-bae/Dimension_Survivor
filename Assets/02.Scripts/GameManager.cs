@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    #region Variables
     public static GameManager instance;
 
     [Header("Game Control")]
@@ -17,6 +18,8 @@ public class GameManager : MonoBehaviour
     [Header("Game Object")]
     public Player player;
     public PoolManager pool;
+
+    #endregion
 
     #region Unity Methods
     void Awake()

@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    #region Variables
     public Transform[] spawnPoint;
     public SpawnData[] spawnData;
 
     int level;
     float timer;
+
+    #endregion
 
     #region Unity Methods
     void Awake()
