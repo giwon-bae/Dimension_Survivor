@@ -5,17 +5,19 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float damage;
+    public int per;
 
-    public Rigidbody2D rigid;
+    //public Rigidbody2D rigid;
 
     private void Awake()
     {
-        rigid = GetComponent<Rigidbody2D>();
+        //rigid = GetComponent<Rigidbody2D>();
     }
 
-    public void Init(float damage, Vector3 dir)
+    public void Init(float damage, int per)
     {
         this.damage = damage;
-        rigid.velocity = dir * 3f;
+        this.per = per;
+        //rigid.velocity = dir * 3f;
     }
 }
