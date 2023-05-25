@@ -123,6 +123,57 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &125548084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 125548085}
+  - component: {fileID: 125548086}
+  m_Layer: 6
+  m_Name: Weapon 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &125548085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125548084}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1355247631}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &125548086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125548084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e37b88807580944b99004525a37309d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  id: 2
+  prefabId: 3
+  damage: 3
+  count: 0
+  pnt: 0
+  speed: 0
 --- !u!1 &195638702
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +205,57 @@ Transform:
   m_Father: {fileID: 2005198367}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &417506430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 417506431}
+  - component: {fileID: 417506432}
+  m_Layer: 6
+  m_Name: Weapon 1(Knife)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &417506431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417506430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1355247631}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &417506432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417506430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e37b88807580944b99004525a37309d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  id: 1
+  prefabId: 2
+  damage: 3
+  count: 1
+  pnt: 0
+  speed: 0
 --- !u!1 &470897107
 GameObject:
   m_ObjectHideFlags: 0
@@ -18137,6 +18239,8 @@ Transform:
   m_Children:
   - {fileID: 470897108}
   - {fileID: 1437291024}
+  - {fileID: 417506431}
+  - {fileID: 125548085}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18188,7 +18292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1100b27e082f5b54cb47e915fa1992fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scanRange: 3
+  scanRange: 5
   targetLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -18257,7 +18361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35c1def79dbc0be43a6938afe976e759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlaying: 0
+  isPlaying: 1
   gameTime: 0
   maxGameTime: 60
   health: 0
@@ -18307,12 +18411,12 @@ GameObject:
   - component: {fileID: 1437291024}
   - component: {fileID: 1437291025}
   m_Layer: 6
-  m_Name: Weapon 0
+  m_Name: Weapon 0(Kitchen Knife)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1437291024
 Transform:
   m_ObjectHideFlags: 0
@@ -18340,12 +18444,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e37b88807580944b99004525a37309d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2373038168272144202, guid: 273b905332b85494d8b9f5afa4fef4b5, type: 3}
-  coolDown: 0.5
+  bulletPrefab: {fileID: 0}
   id: 0
   prefabId: 1
   damage: 11
   count: 3
+  pnt: -1
   speed: 0
 --- !u!1 &1657252946
 GameObject:
@@ -18500,4 +18604,5 @@ MonoBehaviour:
   prefabs:
   - {fileID: 7932203870663504460, guid: f6dd9c7f8850927429f27d5ce8d18b09, type: 3}
   - {fileID: 2373038168272144202, guid: 273b905332b85494d8b9f5afa4fef4b5, type: 3}
-  - {fileID: 2373038168272144202, guid: 273b905332b85494d8b9f5afa4fef4b5, type: 3}
+  - {fileID: 7498428689555201412, guid: 71fe65a2a9de0ac43b9574f9f0c4a089, type: 3}
+  - {fileID: 7498428689555201412, guid: f1b2d3aff81ca234dbd80bc0eb6e82c8, type: 3}

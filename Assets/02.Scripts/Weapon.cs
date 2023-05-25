@@ -7,12 +7,11 @@ public class Weapon : MonoBehaviour
 {
     public GameObject bulletPrefab;
 
-    public float coolDown = 0.5f;
-
     public int id;
     public int prefabId;
     public float damage;
     public int count;
+    public int pnt;
     public float speed;
 
     Player player;
@@ -33,18 +32,17 @@ public class Weapon : MonoBehaviour
                 transform.Rotate(Vector3.forward * speed * Time.deltaTime);
                 break;
             default:
+                timer += Time.deltaTime;
+                if (timer > speed)
+                {
+                    timer = 0f;
+                    Fire();
+                }
                 break;
         }
 
         if (Input.GetKeyDown(KeyCode.L))
             LevelUp(20, 5);
-        //timer += Time.deltaTime;
-
-        //if (timer > coolDown)
-        //{
-        //    timer = 0f;
-        //    Fire();
-        //}
     }
 
     public void LevelUp(float damage, int count)
@@ -67,13 +65,14 @@ public class Weapon : MonoBehaviour
                 Batch();
                 break;
             default:
+                speed = 3f;
                 break;
         }
     }
 
     void Batch()
     {
-        for(int i=0; i < count; i++)
+        for(int i=0; i<count; i++)
         {
             Transform bullet;
             
@@ -94,7 +93,7 @@ public class Weapon : MonoBehaviour
             bullet.Rotate(rotVec);
             bullet.Translate(bullet.right * 1.5f, Space.World);
 
-            bullet.GetComponent<Bullet>().Init(damage, -1); // -1 is infinity per
+            bullet.GetComponent<Bullet>().Init(damage, pnt, Vector3.zero); // -1 is infinity per
         }
     }
 
@@ -103,11 +102,24 @@ public class Weapon : MonoBehaviour
         if (!player.scanner.nearestTarget)
             return;
 
-        Vector3 targetPos = player.scanner.nearestTarget.position;
-        Vector3 dir = targetPos - transform.position;
-        dir = dir.normalized;
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-        bullet.transform.rotation = Quaternion.FromToRotation(Vector3.up, dir);
-        bullet.GetComponent<Bullet>().Init(3, 1);
+        
+
+        StartCoroutine(IFire(0.5f));
+    }
+
+    IEnumerator IFire(float delayTime)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            Vector3 targetPos = player.scanner.nearestTarget.position;
+            Vector3 dir = targetPos - transform.position;
+            dir = dir.normalized;
+
+            Transform bullet = GameManager.instance.pool.Get(prefabId).transform;
+            bullet.position = transform.position;
+            bullet.rotation = Quaternion.FromToRotation(Vector3.left, dir);
+            bullet.GetComponent<Bullet>().Init(damage, pnt, dir);
+            yield return new WaitForSeconds(delayTime / count);
+        }
     }
 }
