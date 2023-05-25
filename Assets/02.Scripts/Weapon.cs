@@ -13,6 +13,7 @@ public class Weapon : MonoBehaviour
     public int count;
     public int pnt;
     public float speed;
+    public float delayTime;
 
     Player player;
     
@@ -102,12 +103,10 @@ public class Weapon : MonoBehaviour
         if (!player.scanner.nearestTarget)
             return;
 
-        
-
-        StartCoroutine(IFire(0.5f));
+        StartCoroutine(IFire());
     }
 
-    IEnumerator IFire(float delayTime)
+    IEnumerator IFire()
     {
         for (int i = 0; i < count; i++)
         {
