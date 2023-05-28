@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D target;
 
     bool isAlive;
+    int layerNum;
 
     Rigidbody2D rigid;
     Collider2D coll;
@@ -29,6 +30,7 @@ public class Enemy : MonoBehaviour
         spriter = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         wait = new WaitForFixedUpdate();
+        layerNum = LayerMask.NameToLayer("Enemy");
     }
 
     void FixedUpdate()
@@ -56,6 +58,7 @@ public class Enemy : MonoBehaviour
         rigid.simulated = true;
         spriter.sortingOrder = 2;
         health = maxHealth;
+        gameObject.layer = layerNum;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -67,6 +70,7 @@ public class Enemy : MonoBehaviour
 
         health -= collision.GetComponent<Bullet>().damage;
         StartCoroutine(KnockBack());
+        gameObject.layer = layerNum;
 
         if (health > 0)
         {
@@ -78,7 +82,7 @@ public class Enemy : MonoBehaviour
             coll.enabled = false;
             rigid.simulated = false;
             GameManager.instance.GetMoney();
-
+            gameObject.layer = 0;
         }
     }
 

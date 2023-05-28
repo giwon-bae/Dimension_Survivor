@@ -11,16 +11,19 @@ public class Scanner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        targets = Physics2D.CircleCastAll(transform.position, scanRange, Vector2.zero, 0, targetLayer);
+        if (this.tag != "Player")
+            return;
+        
         nearestTarget = GetNearest();
     }
 
-    Transform GetNearest()
+    public Transform GetNearest()
     {
         Transform result = null;
         float diff = 100;
 
-        foreach(RaycastHit2D target in targets)
+        targets = Physics2D.CircleCastAll(transform.position, scanRange, Vector2.zero, 0, targetLayer);
+        foreach (RaycastHit2D target in targets)
         {
             Vector3 myPos = transform.position;
             Vector3 targetPos = target.transform.position;

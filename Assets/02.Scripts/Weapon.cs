@@ -7,7 +7,6 @@ public class Weapon : MonoBehaviour
 {
     public GameObject bulletPrefab;
 
-    public int id;
     public int prefabId;
     public float damage;
     public int count;
@@ -27,7 +26,7 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-        switch (id)
+        switch (prefabId)
         {
             case 0:
                 transform.Rotate(Vector3.forward * speed * Time.deltaTime);
@@ -51,7 +50,7 @@ public class Weapon : MonoBehaviour
         this.damage = damage;
         this.count += count;
 
-        if(id == 0)
+        if(prefabId == 0)
         {
             Batch();
         }
@@ -59,7 +58,7 @@ public class Weapon : MonoBehaviour
 
     public void Init()
     {
-        switch (id)
+        switch (prefabId)
         {
             case 0:
                 speed = -159;
@@ -83,7 +82,7 @@ public class Weapon : MonoBehaviour
             }
             else
             {
-                bullet = GameManager.instance.pool.Get(prefabId).transform;
+                bullet = GameManager.instance.poolBullet.Get(prefabId).transform;
                 bullet.parent = transform;
             }
 
@@ -114,7 +113,7 @@ public class Weapon : MonoBehaviour
             Vector3 dir = targetPos - transform.position;
             dir = dir.normalized;
 
-            Transform bullet = GameManager.instance.pool.Get(prefabId).transform;
+            Transform bullet = GameManager.instance.poolBullet.Get(prefabId).transform;
             bullet.position = transform.position;
             bullet.rotation = Quaternion.FromToRotation(Vector3.left, dir);
             bullet.GetComponent<Bullet>().Init(damage, pnt, dir);

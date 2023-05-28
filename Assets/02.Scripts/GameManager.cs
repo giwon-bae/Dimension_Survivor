@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour
     public int money;
     [Header("Game Object")]
     public Player player;
-    public PoolManager pool;
+    public PoolManager poolEnemy;
+    public PoolManager poolBullet;
 
     #endregion
 

@@ -147,4 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  prefabId: 3
   per: 0
+  scanner: {fileID: 0}
+  targetTransform: {fileID: 0}
