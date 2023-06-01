@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public float health;
     public float maxHealth;
 
+    public RuntimeAnimatorController[] animCons;
     public Rigidbody2D target;
 
     bool isAlive;
@@ -35,6 +36,8 @@ public class Enemy : MonoBehaviour
     {
         if (!GameManager.instance.isPlaying) return;
 
+        //if (!isAlive || anim.GetCurrentAnimatorStateInfo(0).IsName("Hit")) return;
+
         Vector2 dirVec = target.position - rigid.position;
         Vector2 nextVec = dirVec.normalized * speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
@@ -56,6 +59,7 @@ public class Enemy : MonoBehaviour
         rigid.simulated = true;
         spriter.sortingOrder = 2;
         health = maxHealth;
+        //anim.SetBool("Dead", false);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -70,7 +74,7 @@ public class Enemy : MonoBehaviour
 
         if (health > 0)
         {
-            // Hit animation
+            //anim.SetTrigger("Hit");
         }
         else
         {
@@ -78,6 +82,7 @@ public class Enemy : MonoBehaviour
             coll.enabled = false;
             rigid.simulated = false;
             GameManager.instance.GetMoney();
+            //anim.SetBool("Dead", true);
 
         }
     }
@@ -89,6 +94,7 @@ public class Enemy : MonoBehaviour
         speed = data.speed;
         maxHealth = data.health;
         health = data.health;
+        //anim.runtimeAnimatorController = animCons[data.spriteType];
     }
 
     void Dead()
@@ -101,6 +107,6 @@ public class Enemy : MonoBehaviour
         yield return wait;
         Vector3 playerPos = GameManager.instance.player.transform.position;
         Vector3 dirVec = transform.position - playerPos;
-        rigid.AddForce(dirVec.normalized * 3, ForceMode2D.Impulse);
+        rigid.AddForce(dirVec.normalized * 50, ForceMode2D.Impulse);
     }
 }

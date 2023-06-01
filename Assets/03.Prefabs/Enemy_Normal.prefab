@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5322701625788199032}
   - component: {fileID: 1926638779023100770}
   - component: {fileID: 6735041467231523365}
+  - component: {fileID: 1785804022533261574}
   - component: {fileID: 2572895794635610958}
   m_Layer: 7
   m_Name: Enemy_Normal
@@ -108,7 +109,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1926638779023100770
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -150,7 +151,20 @@ MonoBehaviour:
   speed: 0
   health: 0
   maxHealth: 0
+  animCons: []
   target: {fileID: 0}
+--- !u!114 &1785804022533261574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7932203870663504460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21dec4f342029d44f880cdf116701cb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &2572895794635610958
 Animator:
   serializedVersion: 4
