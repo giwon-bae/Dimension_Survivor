@@ -102,6 +102,11 @@ public class Weapon : MonoBehaviour
         if (!player.scanner.nearestTarget)
             return;
 
+        if(prefabId == 4)
+        {
+
+            return;
+        }
         StartCoroutine(IFire());
     }
 
