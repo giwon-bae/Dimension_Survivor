@@ -104,7 +104,7 @@ public class Weapon : MonoBehaviour
 
         if(prefabId == 4)
         {
-
+            StartCoroutine(IFireSpread());
             return;
         }
         StartCoroutine(IFire());
@@ -124,5 +124,32 @@ public class Weapon : MonoBehaviour
             bullet.GetComponent<Bullet>().Init(damage, pnt, dir);
             yield return new WaitForSeconds(delayTime / count);
         }
+    }
+
+    [SerializeField]
+    private float spreadAngle = 45f;
+
+    IEnumerator IFireSpread()
+    {
+        Vector3 targetPos = player.scanner.nearestTarget.position;
+        targetPos.z = 0f;
+
+        Vector3 direction = targetPos - transform.position;
+        float centerAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float startAngle = centerAngle - spreadAngle / 2f;
+        float angleStep = spreadAngle / (count - 1);
+
+        for (int i = 0; i < count; i++)
+        {
+            float currentAngle = startAngle + angleStep * i;
+
+            Vector2 dir = new Vector2(Mathf.Cos(currentAngle * Mathf.Deg2Rad), Mathf.Sin(currentAngle * Mathf.Deg2Rad));
+
+            Transform bullet = GameManager.instance.poolBullet.Get(prefabId).transform;
+            bullet.position = transform.position;
+            bullet.rotation = Quaternion.FromToRotation(Vector3.left, dir);
+            bullet.GetComponent<Bullet>().Init(damage, pnt, dir);
+        }
+        yield return null;
     }
 }

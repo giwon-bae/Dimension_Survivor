@@ -174,6 +174,7 @@ MonoBehaviour:
   pnt: 1
   speed: 0
   delayTime: 2
+  spreadAngle: 45
 --- !u!1 &195638702
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,6 +255,7 @@ MonoBehaviour:
   - {fileID: 7498428689555201412, guid: 71fe65a2a9de0ac43b9574f9f0c4a089, type: 3}
   - {fileID: 7498428689555201412, guid: f1b2d3aff81ca234dbd80bc0eb6e82c8, type: 3}
   - {fileID: 7498428689555201412, guid: e0da0729317b5b244aa31668f38903dd, type: 3}
+  - {fileID: 7498428689555201412, guid: 02bc24fdf62117746877f8ea765473dc, type: 3}
 --- !u!1 &417506430
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,6 +307,7 @@ MonoBehaviour:
   pnt: 0
   speed: 0
   delayTime: 0.5
+  spreadAngle: 45
 --- !u!1 &470897107
 GameObject:
   m_ObjectHideFlags: 0
@@ -18168,6 +18171,7 @@ MonoBehaviour:
   pnt: 0
   speed: 0
   delayTime: 0.3
+  spreadAngle: 45
 --- !u!1 &1232055181
 GameObject:
   m_ObjectHideFlags: 0
@@ -18554,6 +18558,7 @@ MonoBehaviour:
   pnt: -1
   speed: 0
   delayTime: 0
+  spreadAngle: 45
 --- !u!1 &1657252946
 GameObject:
   m_ObjectHideFlags: 0
@@ -18612,7 +18617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1707450183}
   m_Layer: 0
-  m_Name: Tmp_Pool Manager
+  m_Name: Pool Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18686,6 +18691,7 @@ MonoBehaviour:
   pnt: 0
   speed: 0
   delayTime: 3
+  spreadAngle: 45
 --- !u!1 &2005198365
 GameObject:
   m_ObjectHideFlags: 0
@@ -18801,7 +18807,7 @@ GameObject:
   - component: {fileID: 2135571647}
   - component: {fileID: 2135571648}
   m_Layer: 0
-  m_Name: Pool Manager
+  m_Name: Tmp_Pool Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
