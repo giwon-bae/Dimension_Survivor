@@ -34,6 +34,7 @@ public class Bullet : MonoBehaviour
 
         if(per > -1)
         {
+            Debug.Log("-1");
             rigid.velocity = dir * 5f;
         }
     }

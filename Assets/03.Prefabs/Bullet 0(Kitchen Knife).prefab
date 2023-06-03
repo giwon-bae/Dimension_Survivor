@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7858323233030895588}
   - component: {fileID: 3960847401447715962}
-  - component: {fileID: 8915582616186152419}
   - component: {fileID: 1990191081241166099}
+  - component: {fileID: -3257397214572888883}
+  - component: {fileID: 8915582616186152419}
   m_Layer: 0
   m_Name: Bullet 0(Kitchen Knife)
   m_TagString: Bullet
@@ -86,23 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8915582616186152419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2373038168272144202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19d0677a487f17d45b7f64203c2c36bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  prefabId: 0
-  per: 0
-  scanner: {fileID: 0}
-  targetTransform: {fileID: 0}
 --- !u!61 &1990191081241166099
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -129,3 +113,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4, y: 0.2}
   m_EdgeRadius: 0
+--- !u!50 &-3257397214572888883
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2373038168272144202}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &8915582616186152419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2373038168272144202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19d0677a487f17d45b7f64203c2c36bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  prefabId: 0
+  per: 0
+  scanner: {fileID: 0}
+  targetTransform: {fileID: 0}

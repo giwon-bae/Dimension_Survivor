@@ -20,8 +20,8 @@ public class Weapon : MonoBehaviour
 
     private void Awake()
     {
-        player = GetComponentInParent<Player>();
-        Init();
+        player = GameManager.instance.player;
+        //Init();
     }
 
     private void Update()
@@ -40,15 +40,13 @@ public class Weapon : MonoBehaviour
                 }
                 break;
         }
-
-        if (Input.GetKeyDown(KeyCode.L))
-            LevelUp(20, 5);
     }
 
-    public void LevelUp(float damage, int count)
+    public void LevelUp(float damage, int count, int pnt)
     {
         this.damage = damage;
-        this.count += count;
+        this.count = count;
+        this.pnt = pnt;
 
         if(prefabId == 0)
         {
@@ -56,8 +54,19 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void Init()
+    public void Init(ItemData data)
     {
+        // Basic Set
+        name = "Weapon" + data.itemId;
+        transform.parent = player.transform;
+        transform.localPosition = Vector3.zero;
+
+        // Property Set
+        prefabId = data.itemId;
+        damage = data.baseDamage;
+        count = data.baseCount;
+        pnt = data.basePnt;
+
         switch (prefabId)
         {
             case 0:
