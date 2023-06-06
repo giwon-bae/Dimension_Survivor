@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float damage;
     public int prefabId;
-    public int per;
+    public int pnt;
 
     Rigidbody2D rigid;
     public Scanner scanner;
@@ -27,21 +27,21 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public void Init(float damage, int per, Vector3 dir)
+    public void Init(float damage, int pnt, Vector3 dir)
     {
         this.damage = damage;
-        this.per = per;
+        this.pnt = pnt;
 
-        if(per > -1)
+        if(pnt > -1)
         {
-            Debug.Log("-1");
+            Debug.Log(">-1");
             rigid.velocity = dir * 5f;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Enemy") || per == -1)
+        if (!collision.CompareTag("Enemy") || pnt == -1)
             return;
 
         if(prefabId == 2)//Axe
@@ -59,9 +59,9 @@ public class Bullet : MonoBehaviour
             }
         }
 
-        per--;
+        pnt--;
 
-        if (per == -1)
+        if (pnt == -1)
         {
             rigid.velocity = Vector2.zero;
             gameObject.SetActive(false);

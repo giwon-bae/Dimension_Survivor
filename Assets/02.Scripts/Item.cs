@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelUp : MonoBehaviour
+public class Item : MonoBehaviour
 {
     public ItemData data;
     public int level;
@@ -32,7 +32,7 @@ public class LevelUp : MonoBehaviour
         {
             case ItemData.ItemType.Melee:
             case ItemData.ItemType.Range:
-                if(level == 0)
+                if (level == 0)
                 {
                     GameObject newWeapon = new GameObject();
                     weapon = newWeapon.AddComponent<Weapon>();
@@ -48,12 +48,13 @@ public class LevelUp : MonoBehaviour
                 }
                 break;
             case ItemData.ItemType.Heal:
+                GameManager.instance.health += 20; //수치 변경 필요
                 break;
         }
 
         level++;
 
-        if(level == data.damages.Length)
+        if (level == data.damages.Length)
         {
             GetComponent<Button>().interactable = false;
         }

@@ -60,6 +60,7 @@ public class Weapon : MonoBehaviour
         name = "Weapon" + data.itemId;
         transform.parent = player.transform;
         transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
 
         // Property Set
         prefabId = data.itemId;
@@ -92,16 +93,17 @@ public class Weapon : MonoBehaviour
             else
             {
                 bullet = GameManager.instance.poolBullet.Get(prefabId).transform;
-                bullet.parent = transform;
+                
             }
+            bullet.parent = transform;
 
             bullet.localPosition = Vector3.zero;
             bullet.localRotation = Quaternion.identity;
+            Debug.Log(bullet.localPosition + " " + bullet.localRotation);
 
             Vector3 rotVec = Vector3.forward * 360 * i / count;
             bullet.Rotate(rotVec);
             bullet.Translate(bullet.right * 1.5f, Space.World);
-
             bullet.GetComponent<Bullet>().Init(damage, pnt, Vector3.zero); // -1 is infinity per
         }
     }
