@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
 
+        health = maxHealth;
+
         waveDatas = new List<WaveData>();
 
         // Wave 1
