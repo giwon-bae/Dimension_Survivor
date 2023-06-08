@@ -32,4 +32,11 @@ public class Player : MonoBehaviour
         if (inputVec.x != 0)
             sprite.flipX = inputVec.x > 0;
     }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (!GameManager.instance.isPlaying) return;
+
+        GameManager.instance.health -= GameManager.instance.currentWave.attackDamage;
+    }
 }
