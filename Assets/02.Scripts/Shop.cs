@@ -16,4 +16,9 @@ public class Shop : MonoBehaviour
     {
         
     }
+
+    public void OpenShop()
+    {
+
+    }
 }

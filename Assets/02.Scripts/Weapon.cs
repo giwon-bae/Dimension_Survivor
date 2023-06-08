@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
     public int count;
     public int pnt;
     public float speed;
-    public float delayTime;
+    public float delayTime = 0.5f;
 
     Player player;
     
@@ -123,9 +123,18 @@ public class Weapon : MonoBehaviour
 
     IEnumerator IFire()
     {
+        Vector3 latestTargetPos = player.scanner.nearestTarget.position;
         for (int i = 0; i < count; i++)
         {
-            Vector3 targetPos = player.scanner.nearestTarget.position;
+            Vector3 targetPos;
+            if (player.scanner.nearestTarget == null)
+                targetPos = latestTargetPos;
+            else
+            {
+                targetPos = player.scanner.nearestTarget.position;
+                latestTargetPos = targetPos;
+            }
+                
             Vector3 dir = targetPos - transform.position;
             dir = dir.normalized;
 
@@ -133,6 +142,7 @@ public class Weapon : MonoBehaviour
             bullet.position = transform.position;
             bullet.rotation = Quaternion.FromToRotation(Vector3.left, dir);
             bullet.GetComponent<Bullet>().Init(damage, pnt, dir);
+            Debug.Log(i);
             yield return new WaitForSeconds(delayTime / count);
         }
     }
