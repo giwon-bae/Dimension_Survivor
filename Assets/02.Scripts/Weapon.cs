@@ -142,7 +142,6 @@ public class Weapon : MonoBehaviour
             bullet.position = transform.position;
             bullet.rotation = Quaternion.FromToRotation(Vector3.left, dir);
             bullet.GetComponent<Bullet>().Init(damage, pnt, dir);
-            Debug.Log(i);
             yield return new WaitForSeconds(delayTime / count);
         }
     }
