@@ -85,17 +85,21 @@ public class Enemy : MonoBehaviour
             coll.enabled = false;
             rigid.simulated = false;
             GameManager.instance.GetMoney();
+            GameManager.instance.kill++;
             gameObject.layer = 0;
+
         }
     }
 
     #endregion
 
-    public void Init(SpawnData data)
+    public void Init(WaveData data)
     {
-        speed = data.speed;
+        speed = data.enemySpeed;
         maxHealth = data.health;
         health = data.health;
+        // attack damage
+
         //anim.runtimeAnimatorController = animCons[data.spriteType];
     }
 

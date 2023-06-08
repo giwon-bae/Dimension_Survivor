@@ -19711,9 +19711,21 @@ MonoBehaviour:
   isPlaying: 1
   gameTime: 0
   maxGameTime: 60
+  waveDatas: []
+  currentWave:
+    waveNumber: 0
+    killAmount: 0
+    health: 0
+    attackDamage: 0
+    enemySpeed: 0
+    dropGoldMax: 0
+    dropGoldMin: 0
+  waveIndex: 0
   health: 0
   maxHealth: 100
   money: 0
+  kill: 0
+  wave: 0
   player: {fileID: 1355247632}
   poolEnemy: {fileID: 2027129182}
   poolBullet: {fileID: 195798660}

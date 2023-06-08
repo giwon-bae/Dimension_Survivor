@@ -40,7 +40,7 @@ public class Spawner : MonoBehaviour
     {
         GameObject enemy = GameManager.instance.poolEnemy.Get(0);
         enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
-        enemy.GetComponent<Enemy>().Init(spawnData[level]);
+        enemy.GetComponent<Enemy>().Init(GameManager.instance.currentWave);
     }
     
 }
