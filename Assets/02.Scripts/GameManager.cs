@@ -17,9 +17,11 @@ public class GameManager : MonoBehaviour
 {
     #region Variables
     public static GameManager instance;
+    public enum StateMode { Playing, Shop, Stop, GameOver }
 
     [Header("Game Control")]
-    public bool isPlaying;
+    public StateMode state;
+    //public bool isPlaying;
     public float gameTime;
     public float maxGameTime = 6 * 10f;
     public List<WaveData> waveDatas;
@@ -35,6 +37,7 @@ public class GameManager : MonoBehaviour
     public Player player;
     public PoolManager poolEnemy;
     public PoolManager poolBullet;
+    public Shop shop;
 
     #endregion
 
@@ -152,7 +155,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (!isPlaying) return;
+        if (state != StateMode.Playing) return;
 
         gameTime += Time.deltaTime;
 
@@ -162,9 +165,17 @@ public class GameManager : MonoBehaviour
         }
 
 
-        if (kill == currentWave.killAmount)
+        if (kill == currentWave.killAmount && !shop.isOpen)
         {
-            ChangeWave();
+            shop.OpenShop();
+            state = StateMode.Shop;
+            //ChangeWave();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            shop.OpenShop();
+            state = StateMode.Shop;
         }
     }
 
@@ -174,7 +185,7 @@ public class GameManager : MonoBehaviour
 
     public void GetMoney()
     {
-        if (!isPlaying) return;
+        if (state != StateMode.Playing) return;
 
         money += Random.Range(currentWave.dropGoldMin, currentWave.dropGoldMax);
     }
@@ -182,17 +193,17 @@ public class GameManager : MonoBehaviour
     public void GameStart()
     {
         health = maxHealth;
-
+        state = StateMode.Playing;
     }
 
     public void GameOver()
     {
-
+        state = StateMode.GameOver;
     }
 
     public void Stop()
     {
-        isPlaying = false;
+        state = StateMode.Stop;
         Time.timeScale = 0;
     }
 
@@ -202,7 +213,7 @@ public class GameManager : MonoBehaviour
 
         currentWave = waveDatas[waveIndex];
         waveIndex++;
-
+        state = StateMode.Playing;
     }
     #endregion
 }

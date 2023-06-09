@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!GameManager.instance.isPlaying) return;
+        if (GameManager.instance.state != GameManager.StateMode.Playing) return;
 
         //if (!isAlive || anim.GetCurrentAnimatorStateInfo(0).IsName("Hit")) return;
 
@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
 
     void LateUpdate()
     {
-        if (!GameManager.instance.isPlaying) return;
+        if (GameManager.instance.state != GameManager.StateMode.Playing) return;
 
         spriter.flipX = target.position.x > rigid.position.x;
     }

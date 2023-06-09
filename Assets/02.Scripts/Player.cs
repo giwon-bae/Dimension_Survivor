@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (GameManager.instance.state != GameManager.StateMode.Playing) return;
         // 3. 위치 이동
         Vector2 nextVec = inputVec.normalized * speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
@@ -35,7 +36,7 @@ public class Player : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        if (!GameManager.instance.isPlaying) return;
+        if (GameManager.instance.state != GameManager.StateMode.Playing) return;
 
         GameManager.instance.health -= GameManager.instance.currentWave.attackDamage;
     }
