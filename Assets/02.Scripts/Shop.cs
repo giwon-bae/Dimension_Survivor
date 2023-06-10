@@ -72,6 +72,7 @@ public class Shop : MonoBehaviour
             showButtonList[i].SetActive(false);
         }
         gameObject.SetActive(false);
+
         GameManager.instance.ChangeWave();
     }
 }

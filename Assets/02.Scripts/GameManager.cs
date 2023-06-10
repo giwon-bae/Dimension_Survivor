@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class WaveData
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
 {
     #region Variables
     public static GameManager instance;
-    public enum StateMode { Playing, Shop, Stop, GameOver }
+    public enum StateMode { Title, Playing, Shop, Stop, GameOver }
 
     [Header("Game Control")]
     public StateMode state;
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
     public float maxGameTime = 6 * 10f;
     public List<WaveData> waveDatas;
     public WaveData currentWave;
-    public int waveIndex = 1;
+    public int waveIndex = 0;
     [Header("Player Info")]
     public float health;
     public float maxHealth = 100;
@@ -45,9 +46,45 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+    }
 
-        health = maxHealth;
+    void Start()
+    {
+        health = maxHealth; //?
+    }
 
+    void Update()
+    {
+        if (state != StateMode.Playing) return;
+
+        gameTime += Time.deltaTime;
+
+        if (gameTime > maxGameTime)
+        {
+            gameTime = maxGameTime;
+        }
+
+
+        if (kill == currentWave.killAmount && !shop.isOpen)
+        {
+            shop.OpenShop();
+            state = StateMode.Shop;
+            //ChangeWave();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            shop.OpenShop();
+            state = StateMode.Shop;
+        }
+    }
+
+    #endregion
+
+    #region Game Progress Methods
+
+    public void SetWaveData()
+    {
         waveDatas = new List<WaveData>();
 
         // Wave 1
@@ -149,39 +186,7 @@ public class GameManager : MonoBehaviour
             dropGoldMax = 100,
             dropGoldMin = 50
         });
-
-        currentWave = waveDatas[0];
     }
-
-    void Update()
-    {
-        if (state != StateMode.Playing) return;
-
-        gameTime += Time.deltaTime;
-
-        if (gameTime > maxGameTime)
-        {
-            gameTime = maxGameTime;
-        }
-
-
-        if (kill == currentWave.killAmount && !shop.isOpen)
-        {
-            shop.OpenShop();
-            state = StateMode.Shop;
-            //ChangeWave();
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            shop.OpenShop();
-            state = StateMode.Shop;
-        }
-    }
-
-    #endregion
-
-    #region Game Progress Methods
 
     public void GetMoney()
     {
@@ -214,6 +219,7 @@ public class GameManager : MonoBehaviour
         currentWave = waveDatas[waveIndex];
         waveIndex++;
         state = StateMode.Playing;
+        Debug.Log(currentWave + ", " + waveIndex);
     }
     #endregion
 }
