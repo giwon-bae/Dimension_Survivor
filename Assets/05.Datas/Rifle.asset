@@ -20,6 +20,7 @@ MonoBehaviour:
   baseDamage: 30
   baseCount: 3
   basePnt: 0
+  baseCost: 230
   damages:
   - 40
   - 55
@@ -28,4 +29,5 @@ MonoBehaviour:
   - 100
   counts: 0400000005000000060000000700000008000000
   pnts: 0000000000000000000000000000000000000000
+  costs: 2c0100005802000084030000b004000008070000
   projectile: {fileID: 7498428689555201412, guid: e0da0729317b5b244aa31668f38903dd, type: 3}
