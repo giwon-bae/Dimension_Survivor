@@ -32,6 +32,9 @@ public class Item : MonoBehaviour
         {
             case ItemData.ItemType.Melee:
             case ItemData.ItemType.Range:
+                if (GameManager.instance.money < data.costs[level])
+                    return;
+                //show 
                 if (level == 0)
                 {
                     GameObject newWeapon = new GameObject();
@@ -46,6 +49,7 @@ public class Item : MonoBehaviour
 
                     weapon.LevelUp(nextDamage, nextCount, nextPnt);
                 }
+                GameManager.instance.money -= data.costs[level];
                 break;
             case ItemData.ItemType.Heal:
                 GameManager.instance.health += 20; //수치 변경 필요
