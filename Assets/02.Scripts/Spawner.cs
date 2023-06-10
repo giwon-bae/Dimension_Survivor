@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     #region Variables
+    public GameObject spawnPointGroup;
     public Transform[] spawnPoint;
     public SpawnData[] spawnData;
 
@@ -16,7 +17,7 @@ public class Spawner : MonoBehaviour
     #region Unity Methods
     void Awake()
     {
-        spawnPoint = GetComponentsInChildren<Transform>();
+        spawnPoint = spawnPointGroup.GetComponentsInChildren<Transform>();
     }
 
     void Update()
