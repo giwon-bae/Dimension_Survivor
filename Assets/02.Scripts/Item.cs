@@ -9,25 +9,32 @@ public class Item : MonoBehaviour
     public int level;
     public Weapon weapon;
 
-    Image icon;
-    Text textLevel;
+    public Image icon;
+    Text levelTxt;
+    Text nameTxt;
+    Text costTxt;
 
     private void Awake()
     {
-        icon = GetComponentsInChildren<Image>()[1];
+        //icon = GetComponentsInChildren<Image>()[1];
         icon.sprite = data.itemIcon;
 
         Text[] texts = GetComponentsInChildren<Text>();
-        textLevel = texts[0];
+        levelTxt = texts[0];
+        nameTxt = texts[1];
+        costTxt = texts[2];
     }
 
     private void LateUpdate()
     {
-        textLevel.text = "Lv." + level;
+        levelTxt.text = "Lv." + level;
+        nameTxt.text = data.itemName;
+        costTxt.text = "" + data.costs[level];
     }
 
     public void OnClick()
     {
+        Debug.Log("OnClick");
         switch (data.itemType)
         {
             case ItemData.ItemType.Melee:

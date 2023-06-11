@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1
   itemId: 1
-  itemName: 
+  itemName: Knife
   itemDesc: 
   itemIcon: {fileID: 21300000, guid: a417bc579638ab94880624fdffa832ba, type: 3}
   damages:
@@ -24,6 +24,6 @@ MonoBehaviour:
   - 200
   - 250
   counts: 0300000003000000040000000400000005000000
-  pnts: 0000000000000000000000000000000000000000
+  pnts: ffffffff00000000000000000000000000000000
   costs: 2c0100005802000084030000b004000008070000
   projectile: {fileID: 7498428689555201412, guid: 71fe65a2a9de0ac43b9574f9f0c4a089, type: 3}
