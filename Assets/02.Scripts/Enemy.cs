@@ -87,7 +87,7 @@ public class Enemy : MonoBehaviour
             GameManager.instance.GetMoney();
             GameManager.instance.kill++;
             gameObject.layer = 0;
-
+            Dead();
         }
     }
 

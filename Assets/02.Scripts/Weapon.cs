@@ -28,6 +28,7 @@ public class Weapon : MonoBehaviour
     {
         if (GameManager.instance.state != GameManager.StateMode.Playing) return;
 
+
         switch (prefabId)
         {
             case 0:
@@ -95,7 +96,6 @@ public class Weapon : MonoBehaviour
             else
             {
                 bullet = GameManager.instance.poolBullet.Get(prefabId).transform;
-                
             }
             bullet.parent = transform;
 
