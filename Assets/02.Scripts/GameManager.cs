@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
             killAmount = 15,
             health = 200,
             attackDamage = 5,
-            enemySpeed = GameManager.instance.player.speed * 0.9f,
+            enemySpeed = GameManager.instance.player.speed * 0.5f,
             dropGoldMax = 35,
             dropGoldMin = 30
         });
@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
             killAmount = 15,
             health = 250,
             attackDamage = 5,
-            enemySpeed = GameManager.instance.player.speed * 0.9f,
+            enemySpeed = GameManager.instance.player.speed * 0.5f,
             dropGoldMax = 40,
             dropGoldMin = 35
         });
@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
             killAmount = 20,
             health = 250,
             attackDamage = 8,
-            enemySpeed = GameManager.instance.player.speed * 0.9f,
+            enemySpeed = GameManager.instance.player.speed * 0.5f,
             dropGoldMax = 45,
             dropGoldMin = 40
         });
@@ -143,7 +143,7 @@ public class GameManager : MonoBehaviour
             killAmount = 20,
             health = 300,
             attackDamage = 8,
-            enemySpeed = GameManager.instance.player.speed * 0.9f,
+            enemySpeed = GameManager.instance.player.speed * 0.5f,
             dropGoldMax = 50,
             dropGoldMin = 45
         });
@@ -154,7 +154,7 @@ public class GameManager : MonoBehaviour
             killAmount = 20,
             health = 300,
             attackDamage = 10,
-            enemySpeed = GameManager.instance.player.speed * 0.9f,
+            enemySpeed = GameManager.instance.player.speed * 0.5f,
             dropGoldMax = 55,
             dropGoldMin = 50
         });
@@ -165,7 +165,7 @@ public class GameManager : MonoBehaviour
             killAmount = 25,
             health = 350,
             attackDamage = 15,
-            enemySpeed = GameManager.instance.player.speed * 0.95f,
+            enemySpeed = GameManager.instance.player.speed * 0.7f,
             dropGoldMax = 70,
             dropGoldMin = 50
         });
@@ -176,7 +176,7 @@ public class GameManager : MonoBehaviour
             killAmount = 25,
             health = 350,
             attackDamage = 18,
-            enemySpeed = GameManager.instance.player.speed * 0.95f,
+            enemySpeed = GameManager.instance.player.speed * 0.7f,
             dropGoldMax = 80,
             dropGoldMin = 50
         });
@@ -187,7 +187,7 @@ public class GameManager : MonoBehaviour
             killAmount = 30,
             health = 400,
             attackDamage = 20,
-            enemySpeed = GameManager.instance.player.speed * 0.95f,
+            enemySpeed = GameManager.instance.player.speed * 0.7f,
             dropGoldMax = 90,
             dropGoldMin = 50
         });
@@ -198,7 +198,7 @@ public class GameManager : MonoBehaviour
             killAmount = 30,
             health = 450,
             attackDamage = 25,
-            enemySpeed = GameManager.instance.player.speed * 0.95f,
+            enemySpeed = GameManager.instance.player.speed * 0.7f,
             dropGoldMax = 100,
             dropGoldMin = 50
         });
