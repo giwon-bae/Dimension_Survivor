@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
     public PoolManager poolBullet;
     public Shop shop;
     public Text myText;
+    public Text waveTxt;
+    public Text killTxt;
 
     #endregion
 
@@ -57,6 +59,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         myText.text = string.Format("Money.{0:F0}", money);
+        waveTxt.text = string.Format("Wave : {0}", currentWave.waveNumber);
+        killTxt.text = string.Format("Kill\n{0} / {1}", kill, currentWave.killAmount);
 
         if (state != StateMode.Playing) return;
 
@@ -87,6 +91,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    
+
     #endregion
 
     #region Game Progress Methods
@@ -110,7 +116,7 @@ public class GameManager : MonoBehaviour
         waveDatas.Add(new WaveData
         {
             waveNumber = 2,
-            killAmount = 30,
+            killAmount = 15,
             health = 250,
             attackDamage = 5,
             enemySpeed = GameManager.instance.player.speed * 0.9f,
@@ -121,7 +127,7 @@ public class GameManager : MonoBehaviour
         waveDatas.Add(new WaveData
         {
             waveNumber = 3,
-            killAmount = 50,
+            killAmount = 20,
             health = 250,
             attackDamage = 8,
             enemySpeed = GameManager.instance.player.speed * 0.9f,
@@ -132,7 +138,7 @@ public class GameManager : MonoBehaviour
         waveDatas.Add(new WaveData
         {
             waveNumber = 4,
-            killAmount = 70,
+            killAmount = 20,
             health = 300,
             attackDamage = 8,
             enemySpeed = GameManager.instance.player.speed * 0.9f,
@@ -143,7 +149,7 @@ public class GameManager : MonoBehaviour
         waveDatas.Add(new WaveData
         {
             waveNumber = 5,
-            killAmount = 90,
+            killAmount = 20,
             health = 300,
             attackDamage = 10,
             enemySpeed = GameManager.instance.player.speed * 0.9f,
@@ -154,7 +160,7 @@ public class GameManager : MonoBehaviour
         waveDatas.Add(new WaveData
         {
             waveNumber = 6,
-            killAmount = 115,
+            killAmount = 25,
             health = 350,
             attackDamage = 15,
             enemySpeed = GameManager.instance.player.speed * 0.95f,
@@ -165,7 +171,7 @@ public class GameManager : MonoBehaviour
         waveDatas.Add(new WaveData
         {
             waveNumber = 7,
-            killAmount = 140,
+            killAmount = 25,
             health = 350,
             attackDamage = 18,
             enemySpeed = GameManager.instance.player.speed * 0.95f,
@@ -176,7 +182,7 @@ public class GameManager : MonoBehaviour
         waveDatas.Add(new WaveData
         {
             waveNumber = 8,
-            killAmount = 170,
+            killAmount = 30,
             health = 400,
             attackDamage = 20,
             enemySpeed = GameManager.instance.player.speed * 0.95f,
@@ -187,7 +193,7 @@ public class GameManager : MonoBehaviour
         waveDatas.Add(new WaveData
         {
             waveNumber = 9,
-            killAmount = 200,
+            killAmount = 30,
             health = 450,
             attackDamage = 25,
             enemySpeed = GameManager.instance.player.speed * 0.95f,
@@ -226,6 +232,7 @@ public class GameManager : MonoBehaviour
 
         currentWave = waveDatas[waveIndex];
         waveIndex++;
+        GameManager.instance.kill = 0;
         state = StateMode.Playing;
         Debug.Log(currentWave + ", " + waveIndex);
     }
