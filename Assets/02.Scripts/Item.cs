@@ -8,6 +8,7 @@ public class Item : MonoBehaviour
     public ItemData data;
     public int level;
     public Weapon weapon;
+    public GameObject visualObj;
 
     public Image icon;
     Text levelTxt;
@@ -47,6 +48,7 @@ public class Item : MonoBehaviour
                     GameObject newWeapon = new GameObject();
                     weapon = newWeapon.AddComponent<Weapon>();
                     weapon.Init(data);
+                    visualObj.SetActive(true);
                 }
                 else
                 {

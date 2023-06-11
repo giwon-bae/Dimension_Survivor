@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float speed;
     
     public Scanner scanner;
+    public GameObject hands;
     Rigidbody2D rigid;
     SpriteRenderer sprite;
     Animator anim;
@@ -35,7 +36,12 @@ public class Player : MonoBehaviour
         anim.SetFloat("Speed", inputVec.magnitude);
 
         if (inputVec.x != 0)
+        {
             sprite.flipX = inputVec.x > 0;
+            float sc = inputVec.x > 0 ? 1 : -1;
+            hands.transform.localScale = new Vector3(sc, 1, 1);
+        }
+
     }
 
     void OnCollisionStay2D(Collision2D collision)
