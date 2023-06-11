@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class WaveData
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     [Header("Player Info")]
     public float health;
     public float maxHealth = 100;
-    public int money;
+    public int money = 300;
     public int kill;
     public int wave;
     [Header("Game Object")]
@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     public PoolManager poolEnemy;
     public PoolManager poolBullet;
     public Shop shop;
+    public Text myText;
 
     #endregion
 
@@ -55,6 +56,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        myText.text = string.Format("Money.{0:F0}", money);
+
         if (state != StateMode.Playing) return;
 
         gameTime += Time.deltaTime;
@@ -64,11 +67,11 @@ public class GameManager : MonoBehaviour
             gameTime = maxGameTime;
         }
 
-
         if (kill == currentWave.killAmount && !shop.isOpen)
         {
             shop.OpenShop();
             state = StateMode.Shop;
+            player.inputVec = Vector2.zero;
             //ChangeWave();
         }
 
@@ -76,6 +79,11 @@ public class GameManager : MonoBehaviour
         {
             shop.OpenShop();
             state = StateMode.Shop;
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Debug.Log(kill);
         }
     }
 

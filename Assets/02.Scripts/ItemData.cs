@@ -16,10 +16,10 @@ public class ItemData : ScriptableObject
     public Sprite itemIcon;
 
     [Header("# Level Data")]
-    public float baseDamage;
-    public int baseCount;
-    public int basePnt;
-    public int baseCost;
+    //public float baseDamage;
+    //public int baseCount;
+    //public int basePnt;
+    //public int baseCost;
     public float[] damages;
     public int[] counts;
     public int[] pnts;

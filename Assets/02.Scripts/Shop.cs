@@ -35,7 +35,7 @@ public class Shop : MonoBehaviour
             showButtonList[i].SetActive(true);
             showButtonList[i].transform.position = showPosList[i+1].position;
         }
-
+        
         isOpen = true;
     }
 
@@ -72,6 +72,7 @@ public class Shop : MonoBehaviour
             showButtonList[i].SetActive(false);
         }
         gameObject.SetActive(false);
+        isOpen = false;
 
         GameManager.instance.ChangeWave();
     }

@@ -26,6 +26,8 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.instance.state != GameManager.StateMode.Playing) return;
+
         switch (prefabId)
         {
             case 0:
@@ -64,9 +66,9 @@ public class Weapon : MonoBehaviour
 
         // Property Set
         prefabId = data.itemId;
-        damage = data.baseDamage;
-        count = data.baseCount;
-        pnt = data.basePnt;
+        damage = data.damages[0];
+        count = data.counts[0];
+        pnt = data.pnts[0];
 
         switch (prefabId)
         {
