@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     public Player player;
     public PoolManager poolEnemy;
     public PoolManager poolBullet;
+    public GameObject poolEnemyGO;
     public Shop shop;
     public Text myText;
     public Text waveTxt;
@@ -231,12 +232,25 @@ public class GameManager : MonoBehaviour
     public void ChangeWave()
     {
         if (waveIndex < 0 || waveIndex >= waveDatas.Count) return;
+        
 
         currentWave = waveDatas[waveIndex];
         waveIndex++;
         GameManager.instance.kill = 0;
         state = StateMode.Playing;
         Debug.Log(currentWave + ", " + waveIndex);
+
+    }
+
+    public void EnemyClean()
+    {
+        foreach (List<GameObject> pool in poolEnemy.pools)
+        {
+            foreach (GameObject enemy in pool)
+            {
+                enemy.SetActive(false);
+            }
+        }
     }
     #endregion
 }

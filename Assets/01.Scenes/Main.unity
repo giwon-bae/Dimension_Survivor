@@ -24141,6 +24141,7 @@ MonoBehaviour:
   player: {fileID: 1355247632}
   poolEnemy: {fileID: 2027129182}
   poolBullet: {fileID: 195798660}
+  poolEnemyGO: {fileID: 2027129180}
   shop: {fileID: 940789725}
   myText: {fileID: 124847454}
   waveTxt: {fileID: 1268607352}

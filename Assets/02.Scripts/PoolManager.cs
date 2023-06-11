@@ -6,7 +6,7 @@ public class PoolManager : MonoBehaviour
 {
     public GameObject[] prefabs;
 
-    List<GameObject>[] pools;
+    public List<GameObject>[] pools;
 
     #region Unity Methods
     void Awake()

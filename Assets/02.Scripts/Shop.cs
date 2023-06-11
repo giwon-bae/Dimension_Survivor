@@ -37,6 +37,8 @@ public class Shop : MonoBehaviour
         }
         
         isOpen = true;
+
+        GameManager.instance.EnemyClean();
     }
 
     private GameObject[] GetRandomButtons(int count)
