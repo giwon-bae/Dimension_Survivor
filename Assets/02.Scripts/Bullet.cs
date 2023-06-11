@@ -31,12 +31,13 @@ public class Bullet : MonoBehaviour
     {
         this.damage = damage;
         this.pnt = pnt;
+        rigid.velocity = dir * 5f;
 
-        if(pnt > -1)
-        {
-            Debug.Log(">-1");
-            rigid.velocity = dir * 5f;
-        }
+        //if (pnt > -1)
+        //{
+        //    Debug.Log(">-1");
+        //    rigid.velocity = dir * 5f;
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1
   itemId: 4
-  itemName: 
+  itemName: Shotgun
   itemDesc: 
   itemIcon: {fileID: 21300000, guid: 097c8f67fb523ba4ebe1a13c8c409b4b, type: 3}
   damages:

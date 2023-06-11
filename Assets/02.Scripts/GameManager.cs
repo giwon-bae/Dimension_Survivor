@@ -58,11 +58,13 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (state == StateMode.Title) return;
+
         myText.text = string.Format("Money.{0:F0}", money);
         waveTxt.text = string.Format("Wave : {0}", currentWave.waveNumber);
         killTxt.text = string.Format("Kill\n{0} / {1}", kill, currentWave.killAmount);
 
-        if (state != StateMode.Playing) return;
+        //if (state != StateMode.Playing) return;
 
         gameTime += Time.deltaTime;
 
