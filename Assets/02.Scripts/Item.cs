@@ -28,7 +28,7 @@ public class Item : MonoBehaviour
 
     private void LateUpdate()
     {
-        levelTxt.text = "Lv." + level;
+        levelTxt.text = "" + level;
         nameTxt.text = data.itemName;
         costTxt.text = "" + data.costs[level];
     }
