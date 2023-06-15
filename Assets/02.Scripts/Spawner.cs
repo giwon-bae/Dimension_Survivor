@@ -11,6 +11,7 @@ public class Spawner : MonoBehaviour
 
     int level;
     float timer;
+    int spawnBoss = 0;
 
     #endregion
 
@@ -25,24 +26,62 @@ public class Spawner : MonoBehaviour
         if (GameManager.instance.state != GameManager.StateMode.Playing) return;
 
         timer += Time.deltaTime;
-        level = Mathf.Min(Mathf.FloorToInt(GameManager.instance.gameTime / 10f), spawnData.Length - 1);
-
-        if (timer > spawnData[level].spawnTime)
+        if (GameManager.instance.currentWave.waveNumber == 0)
         {
-            Spawn();
+            level = 1;
+            if (spawnBoss < 3)
+            {
+                Spawn();
+                spawnBoss++;
+            }
             timer = 0;
-
         }
+        else if (GameManager.instance.currentWave.waveNumber == -1)
+        {
+            level = 2;
+            if (spawnBoss < 1)
+            {
+                Spawn();
+                spawnBoss++;
+            }
+            timer = 0;
+        }
+        else
+        {
+            level = 0;
+            spawnBoss = 0;
+            if (timer > spawnData[level].spawnTime)
+            {
+                Spawn();
+                timer = 0;
+
+            }
+        }
+        
     }
 
     #endregion
 
     void Spawn()
     {
-        GameObject enemy = GameManager.instance.poolEnemy.Get(0);
+        GameObject enemy = null;
+        if (GameManager.instance.currentWave.waveNumber == 0)
+        {
+            enemy = GameManager.instance.poolEnemy.Get(1);
+        }
+        else if (GameManager.instance.currentWave.waveNumber == -1)
+        {
+            enemy = GameManager.instance.poolEnemy.Get(2);
+        }
+        else
+        {
+            enemy = GameManager.instance.poolEnemy.Get(0);
+        }
+        
         enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
         enemy.GetComponent<Enemy>().Init(GameManager.instance.currentWave);
     }
+
     
 }
 

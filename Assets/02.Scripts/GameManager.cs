@@ -62,7 +62,8 @@ public class GameManager : MonoBehaviour
         if (state == StateMode.Title) return;
 
         myText.text = string.Format("Money.{0:F0}", money);
-        waveTxt.text = string.Format("Wave : {0}", currentWave.waveNumber);
+        if (currentWave.waveNumber <= 0) waveTxt.text = string.Format("Boss");
+        else waveTxt.text = string.Format("Wave : {0}", currentWave.waveNumber);
         killTxt.text = string.Format("Kill\n{0} / {1}", kill, currentWave.killAmount);
 
         //if (state != StateMode.Playing) return;
@@ -159,7 +160,18 @@ public class GameManager : MonoBehaviour
             dropGoldMax = 55,
             dropGoldMin = 50
         });
-        // Wave 6
+        // Wave 6 - SubBoss
+        waveDatas.Add(new WaveData
+        {
+            waveNumber = 0,
+            killAmount = 3,
+            health = 800,
+            attackDamage = 15,
+            enemySpeed = GameManager.instance.player.speed * 0.6f,
+            dropGoldMax = 100,
+            dropGoldMin = 50
+        });
+        // Wave 7
         waveDatas.Add(new WaveData
         {
             waveNumber = 6,
@@ -170,7 +182,7 @@ public class GameManager : MonoBehaviour
             dropGoldMax = 70,
             dropGoldMin = 50
         });
-        // Wave 7
+        // Wave 8
         waveDatas.Add(new WaveData
         {
             waveNumber = 7,
@@ -181,7 +193,7 @@ public class GameManager : MonoBehaviour
             dropGoldMax = 80,
             dropGoldMin = 50
         });
-        // Wave 8
+        // Wave 9
         waveDatas.Add(new WaveData
         {
             waveNumber = 8,
@@ -192,7 +204,7 @@ public class GameManager : MonoBehaviour
             dropGoldMax = 90,
             dropGoldMin = 50
         });
-        // Wave 9
+        // Wave 10
         waveDatas.Add(new WaveData
         {
             waveNumber = 9,
@@ -202,6 +214,17 @@ public class GameManager : MonoBehaviour
             enemySpeed = GameManager.instance.player.speed * 0.7f,
             dropGoldMax = 100,
             dropGoldMin = 50
+        });
+        // Wave 11 - Fianl Boss
+        waveDatas.Add(new WaveData
+        {
+            waveNumber = -1,
+            killAmount = 1,
+            health = 5000,
+            attackDamage = 30,
+            enemySpeed = GameManager.instance.player.speed * 0.75f,
+            dropGoldMax = 100,
+            dropGoldMin = 100
         });
     }
 

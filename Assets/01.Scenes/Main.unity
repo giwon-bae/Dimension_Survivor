@@ -27200,6 +27200,10 @@ MonoBehaviour:
     spawnTime: 2
     health: 10
     speed: 1
+  - spriteType: 1
+    spawnTime: 2
+    health: 10
+    speed: 1
 --- !u!4 &2005198367
 Transform:
   m_ObjectHideFlags: 0
@@ -27414,6 +27418,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 7932203870663504460, guid: f6dd9c7f8850927429f27d5ce8d18b09, type: 3}
+  - {fileID: 7932203870663504460, guid: 83f113748ee355a4393fb2141157128c, type: 3}
+  - {fileID: 7932203870663504460, guid: 83f113748ee355a4393fb2141157128c, type: 3}
 --- !u!1 &2037139672
 GameObject:
   m_ObjectHideFlags: 0
