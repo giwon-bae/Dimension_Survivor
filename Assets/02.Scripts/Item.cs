@@ -133,7 +133,10 @@ public class Item : MonoBehaviour
         {
             purchaseButton.interactable = false;
             if(data.maxLevelIcon != null)
+            {
+                weapon.prefabId += 5;
                 weaponSprite.sprite = data.maxLevelIcon;
+            }
         }
     }
 }

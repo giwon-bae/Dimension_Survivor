@@ -22,6 +22,7 @@ public class Bullet : MonoBehaviour
         switch (prefabId)
         {
             case 2:
+            case 7:
                 transform.Rotate(Vector3.forward * -240 * Time.deltaTime);
                 break;
         }
@@ -45,7 +46,7 @@ public class Bullet : MonoBehaviour
         if (!collision.CompareTag("Enemy") || pnt == -1)
             return;
 
-        if(prefabId == 2)//Axe
+        if(prefabId == 2 || prefabId == 7)//Axe
         {
             collision.gameObject.layer = LayerMask.NameToLayer("Hitted");
             scanner = GetComponent<Scanner>();
