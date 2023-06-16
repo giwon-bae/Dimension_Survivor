@@ -1915,6 +1915,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 014c2c03ebd240a4db5c93966f690903, type: 2}
   level: 0
   weapon: {fileID: 0}
+  weaponSprite: {fileID: 0}
   visualObj: {fileID: 0}
   purchaseButton: {fileID: 1410179005}
   icon: {fileID: 0}
@@ -2427,7 +2428,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b5275c6efc204694a8386d26ba635345, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c5443af3a1b221942be67792b46fc776, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2752,6 +2753,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 92d38027f0e6aa846b02d76a2be672df, type: 2}
   level: 0
   weapon: {fileID: 0}
+  weaponSprite: {fileID: 0}
   visualObj: {fileID: 0}
   purchaseButton: {fileID: 0}
   icon: {fileID: 0}
@@ -2813,7 +2815,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b5275c6efc204694a8386d26ba635345, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 532b232b2d2b5674093aef8246e8187b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3418,6 +3420,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 874a018a03c86f94d81fa116626bcd87, type: 2}
   level: 0
   weapon: {fileID: 0}
+  weaponSprite: {fileID: 0}
   visualObj: {fileID: 0}
   purchaseButton: {fileID: 0}
   icon: {fileID: 0}
@@ -3656,6 +3659,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: efe1de6c229590148b1f5c42cf415fe0, type: 2}
   level: 0
   weapon: {fileID: 0}
+  weaponSprite: {fileID: 0}
   visualObj: {fileID: 0}
   purchaseButton: {fileID: 1126462625}
   icon: {fileID: 0}
@@ -4775,6 +4779,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: d29157d40d7416e4ebc6a667b785c57a, type: 2}
   level: 0
   weapon: {fileID: 0}
+  weaponSprite: {fileID: 0}
   visualObj: {fileID: 0}
   purchaseButton: {fileID: 1934429173}
   icon: {fileID: 0}
@@ -4944,6 +4949,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: d629c378c5d4ea34681fd9afd27d21be, type: 2}
   level: 0
   weapon: {fileID: 0}
+  weaponSprite: {fileID: 0}
   visualObj: {fileID: 993099360}
   purchaseButton: {fileID: 189005535}
   icon: {fileID: 0}
@@ -9831,6 +9837,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 892e8376155f5f648aa09895dac3b806, type: 2}
   level: 0
   weapon: {fileID: 0}
+  weaponSprite: {fileID: 0}
   visualObj: {fileID: 0}
   purchaseButton: {fileID: 0}
   icon: {fileID: 0}
@@ -19277,6 +19284,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 874a018a03c86f94d81fa116626bcd87, type: 2}
   level: 0
   weapon: {fileID: 0}
+  weaponSprite: {fileID: 0}
   visualObj: {fileID: 0}
   purchaseButton: {fileID: 0}
   icon: {fileID: 0}
@@ -23759,6 +23767,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 92d38027f0e6aa846b02d76a2be672df, type: 2}
   level: 0
   weapon: {fileID: 0}
+  weaponSprite: {fileID: 0}
   visualObj: {fileID: 0}
   purchaseButton: {fileID: 0}
   icon: {fileID: 0}
@@ -23819,6 +23828,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: b63d0734f06ae2c4181a02377aacdaa1, type: 2}
   level: 0
   weapon: {fileID: 0}
+  weaponSprite: {fileID: 0}
   visualObj: {fileID: 0}
   purchaseButton: {fileID: 0}
   icon: {fileID: 0}
@@ -24620,6 +24630,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 874a018a03c86f94d81fa116626bcd87, type: 2}
   level: 0
   weapon: {fileID: 0}
+  weaponSprite: {fileID: 0}
   visualObj: {fileID: 14920749}
   purchaseButton: {fileID: 1633159318}
   icon: {fileID: 0}
@@ -25453,7 +25464,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b5275c6efc204694a8386d26ba635345, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a7ceeb7ae59aaf46bde419c9a5e5f2e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -25740,6 +25751,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: b66b8d699af255945aefe776a2dab4f9, type: 2}
   level: 0
   weapon: {fileID: 0}
+  weaponSprite: {fileID: 0}
   visualObj: {fileID: 0}
   purchaseButton: {fileID: 1634393030}
   icon: {fileID: 0}
@@ -26706,6 +26718,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: d629c378c5d4ea34681fd9afd27d21be, type: 2}
   level: 0
   weapon: {fileID: 0}
+  weaponSprite: {fileID: 0}
   visualObj: {fileID: 0}
   purchaseButton: {fileID: 0}
   icon: {fileID: 0}
@@ -26864,6 +26877,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 892e8376155f5f648aa09895dac3b806, type: 2}
   level: 0
   weapon: {fileID: 0}
+  weaponSprite: {fileID: 284879988}
   visualObj: {fileID: 1163403104}
   purchaseButton: {fileID: 1046454726}
   icon: {fileID: 0}
@@ -28013,6 +28027,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: adea34d1bce0b4a439377e3692410a6a, type: 2}
   level: 0
   weapon: {fileID: 0}
+  weaponSprite: {fileID: 0}
   visualObj: {fileID: 0}
   purchaseButton: {fileID: 1534358529}
   icon: {fileID: 0}
@@ -28841,6 +28856,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 874a018a03c86f94d81fa116626bcd87, type: 2}
   level: 0
   weapon: {fileID: 0}
+  weaponSprite: {fileID: 0}
   visualObj: {fileID: 0}
   purchaseButton: {fileID: 0}
   icon: {fileID: 0}
@@ -28996,7 +29012,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b5275c6efc204694a8386d26ba635345, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bbec6f91163d44b489f8ad172f7ded1e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -31350,6 +31366,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: b63d0734f06ae2c4181a02377aacdaa1, type: 2}
   level: 0
   weapon: {fileID: 0}
+  weaponSprite: {fileID: 0}
   visualObj: {fileID: 576625422}
   purchaseButton: {fileID: 539837186}
   icon: {fileID: 0}
@@ -31439,6 +31456,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 892e8376155f5f648aa09895dac3b806, type: 2}
   level: 0
   weapon: {fileID: 0}
+  weaponSprite: {fileID: 0}
   visualObj: {fileID: 0}
   purchaseButton: {fileID: 0}
   icon: {fileID: 0}
@@ -31594,7 +31612,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b5275c6efc204694a8386d26ba635345, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 40502fa825f85b54695c3409a2aad9f7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -32538,6 +32556,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: d629c378c5d4ea34681fd9afd27d21be, type: 2}
   level: 0
   weapon: {fileID: 0}
+  weaponSprite: {fileID: 0}
   visualObj: {fileID: 0}
   purchaseButton: {fileID: 0}
   icon: {fileID: 0}
@@ -33079,6 +33098,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: b63d0734f06ae2c4181a02377aacdaa1, type: 2}
   level: 0
   weapon: {fileID: 0}
+  weaponSprite: {fileID: 0}
   visualObj: {fileID: 0}
   purchaseButton: {fileID: 0}
   icon: {fileID: 0}

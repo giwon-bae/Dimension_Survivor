@@ -8,6 +8,7 @@ public class Item : MonoBehaviour
     public ItemData data;
     public int level;
     public Weapon weapon;
+    public SpriteRenderer weaponSprite;
     public GameObject visualObj;
     public Button purchaseButton;
 
@@ -89,6 +90,11 @@ public class Item : MonoBehaviour
 
                 GameManager.instance.money -= data.costs[level];
                 level++;
+
+                if (level == data.damages.Length - 1)
+                {
+                    icon.sprite = data.maxLevelIcon;
+                }
                 break;
             case ItemData.ItemType.Potion:
                 switch (data.itemId)
@@ -126,6 +132,8 @@ public class Item : MonoBehaviour
         if (level == data.damages.Length)
         {
             purchaseButton.interactable = false;
+            if(data.maxLevelIcon != null)
+                weaponSprite.sprite = data.maxLevelIcon;
         }
     }
 }

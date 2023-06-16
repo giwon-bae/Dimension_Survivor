@@ -17,6 +17,7 @@ MonoBehaviour:
   itemName: Knife
   itemDesc: 
   itemIcon: {fileID: 21300000, guid: a417bc579638ab94880624fdffa832ba, type: 3}
+  maxLevelIcon: {fileID: 21300000, guid: 5a3edf1b7195a514eb8515d0059b42cc, type: 3}
   damages:
   - 90
   - 120

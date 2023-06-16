@@ -14,6 +14,7 @@ public class ItemData : ScriptableObject
     [TextArea]
     public string itemDesc;
     public Sprite itemIcon;
+    public Sprite maxLevelIcon;
 
     [Header("# Level Data")]
     //public float baseDamage;
