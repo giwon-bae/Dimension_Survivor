@@ -98,9 +98,6 @@ public class Enemy : MonoBehaviour
         speed = data.enemySpeed;
         maxHealth = data.health;
         health = data.health;
-        // attack damage
-
-        //anim.runtimeAnimatorController = animCons[data.spriteType];
     }
 
     void Dead()

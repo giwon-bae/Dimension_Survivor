@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class WaveData
@@ -57,6 +58,18 @@ public class GameManager : MonoBehaviour
         health = maxHealth; //?
     }
 
+    void FixedUpdate()
+    {
+        if (state == StateMode.GameOver)
+        {
+            currentWave = waveDatas[0];
+            maxHealth = 100;
+            health = 100;
+            money = 300;
+            SceneManager.LoadScene("Title");
+        }
+    }
+
     void Update()
     {
         if (state == StateMode.Title) return;
@@ -77,10 +90,16 @@ public class GameManager : MonoBehaviour
 
         if (kill >= currentWave.killAmount && !shop.isOpen)
         {
-            shop.OpenShop();
-            state = StateMode.Shop;
-            player.inputVec = Vector2.zero;
-            //ChangeWave();
+            if (currentWave.waveNumber == -1)
+            {
+                state = StateMode.GameOver;
+            }
+            else
+            {
+                shop.OpenShop();
+                state = StateMode.Shop;
+                player.inputVec = Vector2.zero;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.L))
@@ -164,12 +183,12 @@ public class GameManager : MonoBehaviour
         waveDatas.Add(new WaveData
         {
             waveNumber = 0,
-            killAmount = 3,
-            health = 800,
-            attackDamage = 15,
+            killAmount = 1,
+            health = 2000,
+            attackDamage = 25,
             enemySpeed = GameManager.instance.player.speed * 0.6f,
-            dropGoldMax = 100,
-            dropGoldMin = 50
+            dropGoldMax = 300,
+            dropGoldMin = 300
         });
         // Wave 7
         waveDatas.Add(new WaveData
@@ -220,11 +239,11 @@ public class GameManager : MonoBehaviour
         {
             waveNumber = -1,
             killAmount = 1,
-            health = 5000,
-            attackDamage = 30,
-            enemySpeed = GameManager.instance.player.speed * 0.75f,
-            dropGoldMax = 100,
-            dropGoldMin = 100
+            health = 10000,
+            attackDamage = 40,
+            enemySpeed = GameManager.instance.player.speed * 0.6f,
+            dropGoldMax = 0,
+            dropGoldMin = 0
         });
     }
 
