@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
             gameTime = maxGameTime;
         }
 
-        if (kill == currentWave.killAmount && !shop.isOpen)
+        if (kill >= currentWave.killAmount && !shop.isOpen)
         {
             shop.OpenShop();
             state = StateMode.Shop;
