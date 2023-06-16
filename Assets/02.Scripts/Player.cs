@@ -5,13 +5,17 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Vector2 inputVec;
+    public float damage = 0;
     public float speed;
+    public float coolDown = 0;
     
     public Scanner scanner;
     public GameObject hands;
     Rigidbody2D rigid;
     SpriteRenderer sprite;
     Animator anim;
+
+    
 
     private void Awake()
     {

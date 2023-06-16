@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
 
     public void Init(float damage, int pnt, Vector3 dir)
     {
-        this.damage = damage;
+        this.damage = damage + GameManager.instance.player.damage;
         this.pnt = pnt;
         rigid.velocity = dir * 5f;
 

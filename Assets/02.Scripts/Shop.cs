@@ -6,15 +6,19 @@ public class Shop : MonoBehaviour
 {
     public bool isOpen = false;
 
-    public GameObject[] buttons;
+    public GameObject[] weaponButtons;
+    public GameObject[] potionButtons;
+    public GameObject healButton;
     public Transform showPos;
-    private Transform[] showPosList;
-    
+    public Transform[] showPosList;
+    public Transform[] showPosList2;
+
     private GameObject[] showButtonList;
+    private GameObject[] showButtonList2;
 
     void Start()
     {
-        showPosList = showPos.GetComponentsInChildren<Transform>();
+        //showPosList = showPos.GetComponentsInChildren<Transform>();
         gameObject.SetActive(false);
     }
 
@@ -28,20 +32,25 @@ public class Shop : MonoBehaviour
     {
         gameObject.SetActive(true);
         // weapon button list 중 4개 선택
-        showButtonList = GetRandomButtons(4);
+        showButtonList = GetRandomButtons(weaponButtons, 2);
+        showButtonList2 = GetRandomButtons(potionButtons, 1);
         // replace position
-        for(int i=0; i<showButtonList.Length; i++)
+        for (int i=0; i<showButtonList.Length; i++)
         {
             showButtonList[i].SetActive(true);
-            showButtonList[i].transform.position = showPosList[i+1].position;
+            showButtonList[i].transform.position = showPosList[i].position;
         }
-        
+        showButtonList2[0].SetActive(true);
+        showButtonList2[0].transform.position = showPosList2[0].position;
+        healButton.SetActive(true);
+        healButton.transform.position = showPosList2[1].position;
+
         isOpen = true;
 
         GameManager.instance.EnemyClean();
     }
 
-    private GameObject[] GetRandomButtons(int count)
+    private GameObject[] GetRandomButtons(GameObject[] buttons, int count)
     {
         GameObject[] result = new GameObject[count];
         int[] indices = new int[buttons.Length];
@@ -73,6 +82,8 @@ public class Shop : MonoBehaviour
         {
             showButtonList[i].SetActive(false);
         }
+        showButtonList2[0].SetActive(false);
+        healButton.SetActive(false);
         gameObject.SetActive(false);
         isOpen = false;
 

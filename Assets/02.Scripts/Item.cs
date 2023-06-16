@@ -28,11 +28,10 @@ public class Item : MonoBehaviour
         {
             case ItemData.ItemType.Melee:
             case ItemData.ItemType.Range:
+            case ItemData.ItemType.Potion:
                 levelTxt = texts[0];
                 //nameTxt = texts[1];
                 costTxt = texts[1];
-                break;
-            case ItemData.ItemType.Potion:
                 break;
             case ItemData.ItemType.Heal:
                 costTxt = texts[0];
@@ -46,13 +45,12 @@ public class Item : MonoBehaviour
         {
             case ItemData.ItemType.Melee:
             case ItemData.ItemType.Range:
+            case ItemData.ItemType.Potion:
                 levelTxt.text = "" + level;
                 if (level >= data.costs.Length)
                     costTxt.text = "-";
                 else
                     costTxt.text = "" + data.costs[level];
-                break;
-            case ItemData.ItemType.Potion:
                 break;
             case ItemData.ItemType.Heal:
                 costTxt.text = "" + data.costs[level];
@@ -93,6 +91,23 @@ public class Item : MonoBehaviour
                 level++;
                 break;
             case ItemData.ItemType.Potion:
+                switch (data.itemId)
+                {
+                    case 11:
+                        GameManager.instance.player.damage += data.damages[level];
+                        break;
+                    case 12:
+                        GameManager.instance.maxHealth += data.damages[level];
+                        break;
+                    case 13:
+                        GameManager.instance.player.coolDown = data.damages[level];
+                        break;
+                    case 14:
+                        GameManager.instance.player.speed = data.damages[level];
+                        break;
+                }
+                GameManager.instance.money -= data.costs[level];
+                level++;
                 break;
             case ItemData.ItemType.Heal:
                 if (GameManager.instance.health == GameManager.instance.maxHealth)

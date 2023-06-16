@@ -36,7 +36,7 @@ public class Weapon : MonoBehaviour
                 break;
             default:
                 timer += Time.deltaTime;
-                if (timer > speed)
+                if (timer > speed - player.coolDown)
                 {
                     timer = 0f;
                     Fire();
