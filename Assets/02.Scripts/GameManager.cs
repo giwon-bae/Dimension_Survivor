@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     public int waveIndex = 0;
     [Header("Player Info")]
     public float health;
-    public float maxHealth = 100;
+    public float maxHealth = 500;
     public int money = 300;
     public int kill;
     public int wave;

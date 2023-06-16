@@ -9,6 +9,7 @@ public class Item : MonoBehaviour
     public int level;
     public Weapon weapon;
     public GameObject visualObj;
+    public Button purchaseButton;
 
     public Image icon;
     Text levelTxt;
@@ -19,30 +20,58 @@ public class Item : MonoBehaviour
     {
         icon = GetComponentsInChildren<Image>()[1];
         icon.sprite = data.itemIcon;
-        //icon.GetComponent<Image>().sprite = 
 
         Text[] texts = GetComponentsInChildren<Text>();
-        levelTxt = texts[0];
-        //nameTxt = texts[1];
-        costTxt = texts[1];
+        
+
+        switch (data.itemType)
+        {
+            case ItemData.ItemType.Melee:
+            case ItemData.ItemType.Range:
+                levelTxt = texts[0];
+                //nameTxt = texts[1];
+                costTxt = texts[1];
+                break;
+            case ItemData.ItemType.Potion:
+                break;
+            case ItemData.ItemType.Heal:
+                costTxt = texts[0];
+                break;
+        }
     }
 
     private void LateUpdate()
     {
-        levelTxt.text = "" + level;
-        //nameTxt.text = data.itemName;
-        costTxt.text = "" + data.costs[level];
+        switch (data.itemType)
+        {
+            case ItemData.ItemType.Melee:
+            case ItemData.ItemType.Range:
+                levelTxt.text = "" + level;
+                if (level >= data.costs.Length)
+                    costTxt.text = "-";
+                else
+                    costTxt.text = "" + data.costs[level];
+                break;
+            case ItemData.ItemType.Potion:
+                break;
+            case ItemData.ItemType.Heal:
+                costTxt.text = "" + data.costs[level];
+                break;
+        }
+        
     }
 
     public void OnClick()
     {
         Debug.Log("OnClick");
+        if (GameManager.instance.money < data.costs[level])
+            return;
+        
         switch (data.itemType)
         {
             case ItemData.ItemType.Melee:
             case ItemData.ItemType.Range:
-                if (GameManager.instance.money < data.costs[level])
-                    return;
+                
                 //show 
                 if (level == 0)
                 {
@@ -59,18 +88,29 @@ public class Item : MonoBehaviour
 
                     weapon.LevelUp(nextDamage, nextCount, nextPnt);
                 }
+
                 GameManager.instance.money -= data.costs[level];
+                level++;
+                break;
+            case ItemData.ItemType.Potion:
                 break;
             case ItemData.ItemType.Heal:
-                GameManager.instance.health += 20; //수치 변경 필요
+                if (GameManager.instance.health == GameManager.instance.maxHealth)
+                    return;
+
+                    int healAmount = (int)(GameManager.instance.maxHealth * 0.3f);
+                if (GameManager.instance.health + healAmount > GameManager.instance.maxHealth)
+                    GameManager.instance.health = GameManager.instance.maxHealth;
+                else
+                    GameManager.instance.health += healAmount;
+
+                GameManager.instance.money -= data.costs[level];
                 break;
         }
 
-        level++;
-
         if (level == data.damages.Length)
         {
-            GetComponent<Button>().interactable = false;
+            purchaseButton.interactable = false;
         }
     }
 }
