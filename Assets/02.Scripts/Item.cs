@@ -12,24 +12,25 @@ public class Item : MonoBehaviour
 
     public Image icon;
     Text levelTxt;
-    Text nameTxt;
+    //Text nameTxt;
     Text costTxt;
 
     private void Awake()
     {
-        //icon = GetComponentsInChildren<Image>()[1];
+        icon = GetComponentsInChildren<Image>()[1];
         icon.sprite = data.itemIcon;
+        //icon.GetComponent<Image>().sprite = 
 
         Text[] texts = GetComponentsInChildren<Text>();
         levelTxt = texts[0];
-        nameTxt = texts[1];
-        costTxt = texts[2];
+        //nameTxt = texts[1];
+        costTxt = texts[1];
     }
 
     private void LateUpdate()
     {
         levelTxt.text = "" + level;
-        nameTxt.text = data.itemName;
+        //nameTxt.text = data.itemName;
         costTxt.text = "" + data.costs[level];
     }
 
