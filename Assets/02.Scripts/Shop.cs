@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
@@ -12,19 +13,19 @@ public class Shop : MonoBehaviour
     public Transform showPos;
     public Transform[] showPosList;
     public Transform[] showPosList2;
+    public Text shopGold;
 
     private GameObject[] showButtonList;
     private GameObject[] showButtonList2;
 
     void Start()
     {
-        //showPosList = showPos.GetComponentsInChildren<Transform>();
         gameObject.SetActive(false);
     }
 
-    private void OnEnable()
+    private void Update()
     {
-        //OpenShop();
+        shopGold.text = "" + GameManager.instance.money;
     }
 
 
