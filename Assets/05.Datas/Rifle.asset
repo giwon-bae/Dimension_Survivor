@@ -17,6 +17,7 @@ MonoBehaviour:
   itemName: Rifle
   itemDesc: 
   itemIcon: {fileID: 21300000, guid: bd49306a9225cd94da91681f31e8efb6, type: 3}
+  maxLevelIcon: {fileID: 21300000, guid: 71b26151777a4db43ad80149f02f6294, type: 3}
   damages:
   - 40
   - 55

@@ -4949,7 +4949,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: d629c378c5d4ea34681fd9afd27d21be, type: 2}
   level: 0
   weapon: {fileID: 0}
-  weaponSprite: {fileID: 0}
+  weaponSprite: {fileID: 34187854}
   visualObj: {fileID: 993099360}
   purchaseButton: {fileID: 189005535}
   icon: {fileID: 0}
@@ -24630,7 +24630,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 874a018a03c86f94d81fa116626bcd87, type: 2}
   level: 0
   weapon: {fileID: 0}
-  weaponSprite: {fileID: 0}
+  weaponSprite: {fileID: 1302847582}
   visualObj: {fileID: 14920749}
   purchaseButton: {fileID: 1633159318}
   icon: {fileID: 0}
@@ -31366,7 +31366,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: b63d0734f06ae2c4181a02377aacdaa1, type: 2}
   level: 0
   weapon: {fileID: 0}
-  weaponSprite: {fileID: 0}
+  weaponSprite: {fileID: 676631488}
   visualObj: {fileID: 576625422}
   purchaseButton: {fileID: 539837186}
   icon: {fileID: 0}

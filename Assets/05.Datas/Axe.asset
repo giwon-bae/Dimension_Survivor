@@ -17,6 +17,7 @@ MonoBehaviour:
   itemName: Axe
   itemDesc: 
   itemIcon: {fileID: 21300000, guid: 8a3294154961f6343af4a1aa43c1bff7, type: 3}
+  maxLevelIcon: {fileID: 21300000, guid: d80c8f022eca0104fb8ab7ea9919a3bf, type: 3}
   damages:
   - 100
   - 120
