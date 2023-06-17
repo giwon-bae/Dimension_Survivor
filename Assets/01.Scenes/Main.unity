@@ -28413,7 +28413,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -1011105832, guid: a8a55cc916504294da9d9a9b98eac1c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -28446,7 +28446,7 @@ Transform:
   - {fileID: 2051815525}
   - {fileID: 640561136}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1355247632
 MonoBehaviour:
@@ -34470,7 +34470,7 @@ Transform:
   - {fileID: 1175102299}
   - {fileID: 609110498}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2073952156
 GameObject:
