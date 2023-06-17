@@ -8,14 +8,14 @@ public class Player : MonoBehaviour
     public float damage = 0;
     public float speed;
     public float coolDown = 0;
-    
+    public FloatingJoystick variableJoystick;
+
     public Scanner scanner;
     public GameObject hands;
     Rigidbody2D rigid;
     SpriteRenderer sprite;
     Animator anim;
 
-    
 
     private void Awake()
     {
@@ -27,13 +27,16 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        inputVec.x = Input.GetAxisRaw("Horizontal"); //x축 이동
-        inputVec.y = Input.GetAxisRaw("Vertical"); //y축 이동
+        //inputVec.x = Input.GetAxisRaw("Horizontal"); //x축 이동
+        //inputVec.y = Input.GetAxisRaw("Vertical"); //y축 이동
     }
     void FixedUpdate()
     {
         if (GameManager.instance.state != GameManager.StateMode.Playing) return;
+
         // 3. 위치 이동
+        inputVec.x = variableJoystick.Horizontal;
+        inputVec.y = variableJoystick.Vertical;
         Vector2 nextVec = inputVec.normalized * speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
 

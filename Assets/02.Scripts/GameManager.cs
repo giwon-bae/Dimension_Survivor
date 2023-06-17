@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
     {
         if (state == StateMode.Title) return;
 
-        myText.text = string.Format("Money.{0:F0}", money);
+        myText.text = string.Format("GOLD : {0:F0}", money);
         if (currentWave.waveNumber <= 0) waveTxt.text = string.Format("Boss");
         else waveTxt.text = string.Format("Wave : {0}", currentWave.waveNumber);
         killTxt.text = string.Format("Kill\n{0} / {1}", kill, currentWave.killAmount);
