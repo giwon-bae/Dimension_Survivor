@@ -51,7 +51,8 @@ public class VideoHandler : MonoBehaviour
     {
         if (vp == videoPlayer)
         {
-            GameManager.instance.state = GameManager.StateMode.GameOver;
+            //GameManager.instance.state = GameManager.StateMode.GameOver;
+            SceneController.instance.GoToTitle();
         }
     }
 }
