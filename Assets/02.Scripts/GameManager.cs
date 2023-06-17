@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 [System.Serializable]
 public class WaveData
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour
 {
     #region Variables
     public static GameManager instance;
-    public enum StateMode { Title, Playing, Shop, Stop, GameOver }
+    public enum StateMode { Title, Playing, Shop, Stop, GameOver, GameClear }
 
     [Header("Game Control")]
     public StateMode state;
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
     public List<WaveData> waveDatas;
     public WaveData currentWave;
     public int waveIndex = 0;
+    public VideoHandler videoHandler;
     [Header("Player Info")]
     public float health;
     public float maxHealth = 500;
@@ -54,6 +56,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         Application.targetFrameRate = 60;
+        videoHandler = GetComponent<VideoHandler>();
     }
 
     void Start()
@@ -96,7 +99,7 @@ public class GameManager : MonoBehaviour
         {
             if (currentWave.waveNumber == -1)
             {
-                state = StateMode.GameOver;
+                GameClear();
             }
             else
             {
@@ -118,7 +121,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+    void LateUpdate()
+    {
+        
+    }
 
     #endregion
 
@@ -270,6 +276,14 @@ public class GameManager : MonoBehaviour
         state = StateMode.GameOver;
         Time.timeScale = 0;
         deadUI.SetActive(true);
+    }
+
+    public void GameClear()
+    {
+        state = StateMode.GameClear;
+        videoHandler.mScreen.gameObject.SetActive(true);
+        videoHandler.PlayVideo();
+        
     }
 
     public void Stop()
