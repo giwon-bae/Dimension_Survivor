@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     public Text waveTxt;
     public Text killTxt;
     public Slider hpBar;
+    public GameObject deadUI;
 
     #endregion
 
@@ -57,7 +58,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        health = maxHealth; //?
+        GameStart();
     }
 
     void FixedUpdate()
@@ -261,11 +262,14 @@ public class GameManager : MonoBehaviour
     {
         health = maxHealth;
         state = StateMode.Playing;
+        Time.timeScale = 1;
     }
 
     public void GameOver()
     {
         state = StateMode.GameOver;
+        Time.timeScale = 0;
+        deadUI.SetActive(true);
     }
 
     public void Stop()

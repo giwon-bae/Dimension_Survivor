@@ -56,5 +56,7 @@ public class Player : MonoBehaviour
         if (GameManager.instance.state != GameManager.StateMode.Playing) return;
 
         GameManager.instance.health -= GameManager.instance.currentWave.attackDamage;
+        if (GameManager.instance.health <= 0)
+            GameManager.instance.GameOver();
     }
 }

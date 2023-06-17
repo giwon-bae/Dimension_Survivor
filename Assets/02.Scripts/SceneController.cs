@@ -48,4 +48,10 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene("Main");
     }
+
+    public void ReloadScene()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene("Main");
+    }
 }
