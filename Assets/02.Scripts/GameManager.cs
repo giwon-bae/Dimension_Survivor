@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     public Text myText;
     public Text waveTxt;
     public Text killTxt;
+    public Slider hpBar;
 
     #endregion
 
@@ -78,6 +79,7 @@ public class GameManager : MonoBehaviour
         if (currentWave.waveNumber <= 0) waveTxt.text = string.Format("Boss");
         else waveTxt.text = string.Format("Wave : {0}", currentWave.waveNumber);
         killTxt.text = string.Format("Kill\n{0} / {1}", kill, currentWave.killAmount);
+        hpBar.value = health / maxHealth;
 
         //if (state != StateMode.Playing) return;
 
