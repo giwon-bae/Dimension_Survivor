@@ -282,6 +282,7 @@ public class GameManager : MonoBehaviour
     {
         state = StateMode.GameClear;
         videoHandler.mScreen.gameObject.SetActive(true);
+        videoHandler.videoPlayer.gameObject.SetActive(true);
         videoHandler.PlayVideo();
         
     }
