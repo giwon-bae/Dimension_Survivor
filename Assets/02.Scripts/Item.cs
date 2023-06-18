@@ -104,6 +104,7 @@ public class Item : MonoBehaviour
                         break;
                     case 12:
                         GameManager.instance.maxHealth += data.damages[level];
+                        GameManager.instance.health += data.damages[level];
                         break;
                     case 13:
                         GameManager.instance.player.coolDown = data.damages[level];

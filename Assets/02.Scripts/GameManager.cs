@@ -193,7 +193,7 @@ public class GameManager : MonoBehaviour
         waveDatas.Add(new WaveData
         {
             waveNumber = 0,
-            killAmount = 1,
+            killAmount = 3,
             health = 2000,
             attackDamage = 25,
             enemySpeed = GameManager.instance.player.speed * 0.6f,
