@@ -7,11 +7,7 @@ using System;
 
 public class SceneController : MonoBehaviour
 {
-    public static SceneController instance;
-
     public GameObject[] Panels;
-
-    void Awake() => instance = this;
 
     private void Start()
     {
@@ -46,11 +42,6 @@ public class SceneController : MonoBehaviour
     {
         Panels[0].SetActive(false);
         Panels[1].SetActive(true);
-    }
-
-    public void GoToTitle()
-    {
-        SceneManager.LoadScene("Title");
     }
 
     public void GoToMainScene()

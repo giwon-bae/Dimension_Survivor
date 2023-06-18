@@ -48,7 +48,6 @@ public class GameManager : MonoBehaviour
     public Text killTxt;
     public Slider hpBar;
     public GameObject deadUI;
-    public GameObject videoObj;
 
     #endregion
 
@@ -67,14 +66,14 @@ public class GameManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        //if (state == StateMode.GameOver)
-        //{
-        //    currentWave = waveDatas[0];
-        //    maxHealth = 100;
-        //    health = 100;
-        //    money = 300;
-        //    SceneManager.LoadScene("Title");
-        //}
+        if (state == StateMode.GameOver)
+        {
+            currentWave = waveDatas[0];
+            maxHealth = 100;
+            health = 100;
+            money = 300;
+            SceneManager.LoadScene("Title");
+        }
     }
 
     void Update()
@@ -100,7 +99,6 @@ public class GameManager : MonoBehaviour
         {
             if (currentWave.waveNumber == -1)
             {
-                videoObj.SetActive(true);
                 GameClear();
             }
             else
@@ -120,13 +118,6 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             Debug.Log(kill);
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Debug.Log("Hi");
-            videoObj.SetActive(true);
-            GameClear();
         }
     }
 
@@ -292,6 +283,7 @@ public class GameManager : MonoBehaviour
         state = StateMode.GameClear;
         videoHandler.mScreen.gameObject.SetActive(true);
         videoHandler.PlayVideo();
+        
     }
 
     public void Stop()
@@ -304,6 +296,7 @@ public class GameManager : MonoBehaviour
     {
         if (waveIndex < 0 || waveIndex >= waveDatas.Count) return;
         
+
         currentWave = waveDatas[waveIndex];
         waveIndex++;
         GameManager.instance.kill = 0;
